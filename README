@@ -1,4 +1,4 @@
-# Raspberry Pi (4b) Forensic Write-Blocker
+# Raspberry Pi (4B, 4GB) Forensic Write-Blocker
 
 ### Author
 ezloomdev
@@ -16,6 +16,8 @@ A forensic write-blocker's job is to protect the integrity of the **original evi
 This Raspberry Pi acts as the **middleman**:
 
 evidence drive → read-only → image drive / analysis
+
+This setup is built on a **DietPi v9.18.1 (aarch64)** system running on a **Raspberry Pi 4B with 4GB RAM**, optimized for lightweight forensic tasks, stability, and fast USB handling.
 
 ---
 
@@ -36,7 +38,7 @@ sudo blockdev --setro /dev/sda
 - Notification/log confirms the action:
 
 ```bash
-sudo blockdev --setro /dev/sda
+logger "USB device /dev/sda set to read-only."
 ```
 
 - Optionally, mount read-only for safe browsing:
@@ -75,16 +77,19 @@ sudo sha256sum /dev/sda1
 sudo sha256sum /dev/sdb1
 ```
 
+- `blockdev --getro /dev/sda` returns `1` if read-only.
+
 ### 5. Browse evidence safely
 
 - Mount read-only to inspect files:
 
 ```bash
+sudo mkdir -p /mnt/evidence
 sudo mount -o ro /dev/sda1 /mnt/evidence
 ls /mnt/evidence
 ```
 
-- Never mount the original drive read-write!!!!
+- Never mount the original drive read-write.
 
 ### 6. Automatic logging and notification
 
@@ -111,9 +116,9 @@ USB device /dev/sdb1 set to read-only.
 
 ### 7. Testing the write-blocker
 
-- Plug in USB (/dev/sdb1)
+- Plug in USB (/dev/sdb1)  
 
-- Script sets it read-only automatically
+- Script sets it read-only automatically  
 
 - Mount and inspect:
 
@@ -124,7 +129,7 @@ cd /mnt/testusb
 ls
 ```
 
-- Attempy writing fails:
+- Attempt writing fails:
 
 ```bash
 touch testfile.txt
@@ -133,16 +138,27 @@ touch testfile.txt
 
 - Device is now ready for imaging and analysis.
 
-### 8. IMPORTANT NOTES!!
+### 8. Optional: Terminal Dashboard
 
-- Never mount the evidence drive read-write.
+- Pi auto-launches **btop** on boot for monitoring system resources (CPU, RAM, network, disk I/O).  
+- SSH is still password-protected for remote access, while the local terminal displays btop automatically.
 
-- Always verify hash values after imaging.
+### 9. Important Notes
 
-- Logs can be monitored with:
+- Never mount the evidence drive read-write.  
+- Always verify hash values after imaging.  
+- Logs can be monitored live:
 
 ```bash
 journalctl -f
 ```
 
-- Pi is now fully plug-and-play for forensic write-blocking.
+- DietPi ensures minimal overhead, low power usage, and maximum USB throughput.  
+
+- This setup transforms a **4GB Raspberry Pi 4B** into a dedicated, plug-and-play forensic write-blocker with **automatic read-only enforcement**, hashing, and imaging readiness.
+
+---
+
+### Reference
+
+- https://sechaq.medium.com/building-my-own-write-blocker-cbf687eb0fd0
