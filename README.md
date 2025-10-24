@@ -22,7 +22,7 @@ Evidence drive → read-only → image drive / analysis
 
 This setup is built on Raspberry Pi OS (64-bit) running on a Raspberry Pi 4B with 4GB RAM, optimized for lightweight forensic tasks, stability, and fast USB handling.
 
-### What the Pi Does
+## What the Pi Does
 
 ### Detect the evidence drive
 - Automatically detects when a USB drive is connected using udev
