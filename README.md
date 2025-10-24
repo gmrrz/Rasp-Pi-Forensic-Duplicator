@@ -22,11 +22,35 @@ Evidence drive → read-only → image drive / analysis
 
 This setup is built on Raspberry Pi OS (64-bit) running on a Raspberry Pi 4B with 4GB RAM, optimized for lightweight forensic tasks, stability, and fast USB handling.
 
-### What the Pi Does
+### Installation & Setup
+
+- Make sure your Raspberry Pi OS is up to date:
+```bash
+sudo apt update && sudo apt upgrade -y
+```
+- Install required imaging tools:
+```bash
+sudo apt install ddrescue dcfldd -y
+```
+- Ensure `blockdev` is available (part of util-linux):
+```bash
+which blockdev
+```
+- Copy the udev script and rule files to the correct locations:
+- `/usr/local/bin/usb-readonly.sh`
+- `/etc/udev/rules.d/99-usb-readonly.rules`
+
+- Reload udev rules:
+```bash
+sudo udevadm control --reload
+sudo udevadm trigger
+```
+
+## What the Pi Does
 
 ### Detect the evidence drive
 - Automatically detects when a USB drive is connected using udev
-- Example: `lsblk` will show `/dev/sda` or `/dev/sdb`
+- Example: lsblk will show /dev/sda or /dev/sdb
 - Any plugged-in USB is immediately recognized as the evidence drive
 
 ### Block writes automatically
@@ -96,6 +120,7 @@ ACTION=="add", SUBSYSTEM=="block", ENV{ID_BUS}=="usb", RUN+="/usr/local/bin/usb-
 ```bash
 USB device /dev/sdb1 set to read-only
 ```
+
 ### Testing the write-blocker
 
 - Plug in USB (/dev/sdb1)
@@ -112,6 +137,7 @@ ls
 touch testfile.txt
 # Output: touch: cannot touch 'testfile.txt': Read-only file system
 ```
+
 - Device is now ready for imaging and analysis
 
 ### Photos
