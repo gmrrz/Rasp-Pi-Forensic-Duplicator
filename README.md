@@ -167,4 +167,8 @@ touch testfile.txt
 
 ### Reference
 
-- https://sechaq.medium.com/building-my-own-write-blocker-cbf687eb0fd0
+- Idea
+  - https://sechaq.medium.com/building-my-own-write-blocker-cbf687eb0fd0
+- Hardware
+  - https://www.amazon.com/dp/B07XBVF1C9?ref=ppx_yo2ov_dt_b_fed_asin_title
+  - https://www.amazon.com/CanaKit-Raspberry-4GB-Basic-Kit/dp/B07TXKY4Z9?crid=2F31ZF0DQQR3H&dib=eyJ2IjoiMSJ9.NbdpkzE9de4BnV1ityMKr9DbEGkml4gNmPur2l4bvUeterViSIylhvpNrT0tJWntL4_s7ujioONXS4ltjD4FX65XcmERmyOmISZBi_7tABI2IjRR86kS976yofFsDp1Pn0ehSlTRH0TbV4N9Qn64vn87RnAAZWJTNxJ3VU0qkC6SWWPwrcXQOpMvV62SOgHsmFbjHgbn6K8sFETNmZaZyew_-22oRBlC31f6-eV1-C3QDUZhSjdzCCLImPX7reBwPnF8KRD54hf043Qzx3IOyySPGx9YNfwSvm8c0EffF9k.qwplLd1LQfg-D4aSfEywpsGhE2kquR53HjKHHoNoduI&dib_tag=se&keywords=raspberry%2Bpi%2B4%2B4b%2B4gb&qid=1761283781&s=electronics&sprefix=raspberry%2Bpi%2B4%2B4b%2B4gb%2Celectronics%2C59&sr=1-1&th=1
