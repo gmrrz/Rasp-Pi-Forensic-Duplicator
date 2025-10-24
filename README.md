@@ -116,10 +116,10 @@ touch testfile.txt
 
 ### Photos
 
-![PHOTO](images/img1.png)
-![PHOTO](images/img2.png)
-![PHOTO](images/img3.png)
-![PHOTO](images/img4.png)
+![PHOTO](images/img1.jpg)
+![PHOTO](images/img2.jpg)
+![PHOTO](images/img3.jpg)
+![PHOTO](images/img4.jpg)
 
 ### Reference
 
