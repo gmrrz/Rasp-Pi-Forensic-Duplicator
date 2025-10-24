@@ -33,6 +33,7 @@ sudo apt update && sudo apt upgrade -y
 sudo apt install ddrescue dcfldd -y
 ```
 - Ensure `blockdev` is available (part of util-linux):
+  - git clone (https://github.com/msuhanov/Linux-write-blocker/tree/master/userspace/udev) and move to /etc/udev/rules.d and the stuff in the 'tools' folder (https://github.com/msuhanov/Linux-write-blocker/tree/master/userspace/tools) to /usr/sbin, and then reboot.
 ```bash
 which blockdev
 ```
