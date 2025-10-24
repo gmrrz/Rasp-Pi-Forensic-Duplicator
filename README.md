@@ -18,9 +18,9 @@ A forensic write-blocker's job is to protect the integrity of the original evide
 
 This Raspberry Pi acts as the middleman:
 
-Evidence drive → read-only → image drive / analysis
+- Evidence drive → read-only → image drive / analysis
 
-This setup is built on Raspberry Pi OS (64-bit) running on a Raspberry Pi 4B with 4GB RAM, optimized for lightweight forensic tasks, stability, and fast USB handling.
+- This setup is built on Raspberry Pi OS (64-bit) running on a Raspberry Pi 4B with 4GB RAM, optimized for lightweight forensic tasks, stability, and fast USB handling.
 
 ### Installation & Setup
 
