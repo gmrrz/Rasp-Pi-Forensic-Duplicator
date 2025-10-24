@@ -114,6 +114,13 @@ touch testfile.txt
 ```
 - Device is now ready for imaging and analysis
 
+### Photos
+
+![PHOTO](images/img1.png)
+![PHOTO](images/img2.png)
+![PHOTO](images/img3.png)
+![PHOTO](images/img4.png)
+
 ### Reference
 
 - https://sechaq.medium.com/building-my-own-write-blocker-cbf687eb0fd0
