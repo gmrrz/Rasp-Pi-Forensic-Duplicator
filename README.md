@@ -38,6 +38,28 @@ sudo apt install ddrescue dcfldd -y
 which blockdev
 ```
 - Copy the udev script and rule files to the correct locations:
+
+- udev script `/usr/local/bin/usb-readonly.sh`
+
+```bash
+#!/bin/bash
+DEVNAME="/dev/$1"
+sudo blockdev --setro $DEVNAME
+logger "USB device $DEVNAME set to read-only."
+```
+```bash
+sudo chmod +x /usr/local/bin/usb-readonly.sh
+```
+
+- udev rule `/etc/udev/rules.d/99-usb-readonly.rules`
+```bash
+ACTION=="add", SUBSYSTEM=="block", ENV{ID_BUS}=="usb", RUN+="/usr/local/bin/usb-readonly.sh %k"
+```
+- System log shows
+```bash
+USB device /dev/sdb1 set to read-only
+```
+
 - `/usr/local/bin/usb-readonly.sh`
 - `/etc/udev/rules.d/99-usb-readonly.rules`
 
@@ -51,7 +73,7 @@ sudo udevadm trigger
 
 ### Detect the evidence drive
 - Automatically detects when a USB drive is connected using udev
-- Example: lsblk will show /dev/sda or /dev/sdb
+- Example: lsblk will show /dev/sda or /dev/sdb (may vary)
 - Any plugged-in USB is immediately recognized as the evidence drive
 
 ### Block writes automatically
@@ -74,6 +96,15 @@ touch testfile.txt
 ```
 
 ### Forensic imaging tools
+
+> **Important Notes**
+> 
+> - Always run imaging commands with `sudo` to access devices correctly.
+> - Make sure the Raspberry Pi is powered reliably; losing power during imaging can corrupt your copy.
+> - After installing or modifying udev rules, rebooting the Pi may be required to ensure rules take effect:
+> ```bash
+> sudo reboot
+> ```
 
 - Two terminal imaging tools are installed
 - ddrescue → resilient imaging for error-prone drives
@@ -102,25 +133,6 @@ sudo mount -o ro /dev/sda1 /mnt/evidence
 ls /mnt/evidence
 ```
 - Never mount the original drive read-write
-
-### Automatic logging and notification
-
-- udev script `/usr/local/bin/usb-readonly.sh`
-
-```bash
-#!/bin/bash
-DEVNAME="/dev/$1"
-sudo blockdev --setro $DEVNAME
-logger "USB device $DEVNAME set to read-only."
-```
-- udev rule `/etc/udev/rules.d/99-usb-readonly.rules`
-```bash
-ACTION=="add", SUBSYSTEM=="block", ENV{ID_BUS}=="usb", RUN+="/usr/local/bin/usb-readonly.sh %k"
-```
-- System log shows
-```bash
-USB device /dev/sdb1 set to read-only
-```
 
 ### Testing the write-blocker
 
