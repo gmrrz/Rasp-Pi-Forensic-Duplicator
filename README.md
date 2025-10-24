@@ -115,16 +115,16 @@ touch testfile.txt
 - Device is now ready for imaging and analysis
 
 ### Photos
-
+<center>
 <p>
-  <img src="images/img1.jpg" width="300" />
-  <img src="images/img2.jpg" width="300" />
+  <img src="images/img1.png" width="300" />
+  <img src="images/img2.png" width="300" />
 </p>
 <p>
-  <img src="images/img3.jpg" width="300" />
-  <img src="images/img4.jpg" width="300" />
+  <img src="images/img3.png" width="300" />
+  <img src="images/img4.png" width="300" />
 </p>
-
+</center>
 
 ### Reference
 
