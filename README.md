@@ -1,16 +1,16 @@
-## Raspberry Pi (4B, 4GB) Forensic Write-Blocker
+## Raspberry Pi (4B, 4GB) Forensic Duplicator
 
 ### Author
 ezloomdev
 
 ### Disclaimer
 
-- This Raspberry Pi forensic write-blocker is intended for educational and home-lab purposes only.
+- This Raspberry Pi forensic duplicator is intended for educational and home-lab purposes only.
 - It is not certified for professional digital forensics and should not be used as the sole method to handle real evidence.
 - Always follow proper chain-of-custody and professional forensic procedures when handling critical or legal data.
 
 ### Purpose
-A forensic write-blocker's job is to protect the integrity of the original evidence drive from any accidental writes while allowing you to:
+A forensic duplicator's job is to protect the integrity of the original evidence drive from any accidental writes while allowing you to:
 
 - Examine the drive
 - Create a forensic image
@@ -134,7 +134,7 @@ ls /mnt/evidence
 ```
 - Never mount the original drive read-write
 
-### Testing the write-blocker
+### Testing the write-blocker tool
 
 - Plug in USB (/dev/sdb1)
 - Script sets it read-only automatically
