@@ -1,5 +1,6 @@
 ## Raspberry Pi (4B, 4GB) Forensic Duplicator
 <img src = "thumbnail.png">
+
 ### Author
 ezloomdev
 
